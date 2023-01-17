@@ -1,28 +1,34 @@
-<body></body>
 <script>
+  const gifWidth = 40
+  const gifHeight = 40
+  const gifOffsetX = 50
+  const gifOffsetY = 50
+  const numColumns = window.innerWidth / gifWidth
+  const numRows = window.innerHeight / gifHeight * 0.8
+  const gifURL = 'butterfly.gif'
 
-	function createGif (x, y) {
+  function createGif(x, y) {
     const gif = document.createElement('img')
-    gif.src = 'butterfly.gif'
+    gif.src = gifURL
     gif.style.position = 'absolute'
     gif.style.left = x + 'px'
     gif.style.top = y + 'px'
     document.body.appendChild(gif)
   }
-  
-  const gifWidth = 40
-  const gifHeight = 150
-  const gifOffsetX = 50
-  const num = window.innerWidth / gifWidth
-  
-  console.log(num)
-  for (let i = 0; i < num; i++) {
-		const x = i * gifWidth - gifOffsetX
-    createGif(x, 0)
+
+  function setup() {
+    for (let r = 0; r < numRows; r++) {
+      for (let c = 0; c < numColumns; c++) {
+        const x = c * gifWidth - gifOffsetX
+        const y = r * gifHeight - gifOffsetY
+        createGif(x, y)
+      }
+    }
+
+    document.body.style.backgroundColor = '#e08ab4'
+    document.body.style.overflow = 'hidden'
   }
   
-  document.body.style.backgroundColor = '#e08ab4'
-  document.body.style.overflow = 'hidden'
-
-
+  window.addEventListener('load', setup)
+  
 </script>
