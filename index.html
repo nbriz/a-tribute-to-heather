@@ -1,5 +1,21 @@
+<body></body>
 <script>
 
+	function createGif (x, y) {
+    const gif = document.createElement('img')
+    gif.src = 'butterfly.gif'
+    gif.style.position = 'absolute'
+    gif.style.left = x + 'px'
+    gif.style.top = y + 'px'
+    document.body.appendChild(gif)
+  }
+  
+  for (let i = 0; i < 100; i++) {
+		const x = i * 150
+    createGif(x, 0)
+  }
+  
+  document.body.style.backgroundColor = '#e08ab4'
 
 
 </script>
