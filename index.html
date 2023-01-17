@@ -6,10 +6,10 @@
   const numColumns = window.innerWidth / gifWidth
   const numRows = window.innerHeight / gifHeight * 0.8
   const gifURL = 'butterfly.gif'
-
+  
   function createGif(x, y) {
     const gif = document.createElement('img')
-    gif.src = gifURL
+    gif.src = gifURL + '#' + Math.random()
     gif.style.position = 'absolute'
     gif.style.left = x + 'px'
     gif.style.top = y + 'px'
